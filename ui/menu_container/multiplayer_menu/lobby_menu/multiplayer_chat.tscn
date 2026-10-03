@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://ui/menu_container/multiplayer_menu/lobby_menu/multiplayer_chat.gd" type="Script" id=1]
+[ext_resource path="res://resources/theme.tres" type="Theme" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.101961, 0.164706, 0.219608, 0.490196 )
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=6]
+size = 48
+font_data = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.101961, 0.164706, 0.156863, 1 )
+
+[node name="MultiplayerChat" type="Control"]
+margin_right = 824.0
+margin_bottom = 824.0
+rect_min_size = Vector2( 824, 824 )
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0509804, 0.0862745, 0.121569, 1 )
+
+[node name="MC" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -16.0
+
+[node name="VBC" type="VBoxContainer" parent="MC"]
+margin_right = 792.0
+margin_bottom = 792.0
+custom_constants/separation = 0
+
+[node name="HBC" type="HBoxContainer" parent="MC/VBC"]
+margin_right = 792.0
+margin_bottom = 96.0
+custom_constants/separation = 0
+
+[node name="MessageLineEdit" type="TextEdit" parent="MC/VBC/HBC"]
+margin_right = 664.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 82, 96 )
+size_flags_horizontal = 3
+custom_colors/font_color = Color( 0.839216, 0.839216, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/normal = SubResource( 4 )
+smooth_scrolling = true
+wrap_enabled = true
+caret_blink = true
+
+[node name="Control" type="Control" parent="MC/VBC/HBC"]
+margin_left = 664.0
+margin_right = 792.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 128, 0 )
+
+[node name="Send" type="Button" parent="MC/VBC/HBC/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -48.0
+margin_right = 64.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 128, 96 )
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 6 )
+text = "Send"
+
+[node name="MessageBox" type="TextEdit" parent="MC/VBC"]
+margin_top = 96.0
+margin_right = 792.0
+margin_bottom = 792.0
+focus_mode = 0
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0.839216, 0.839216, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+custom_styles/read_only = SubResource( 7 )
+readonly = true
+smooth_scrolling = true
+wrap_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="MC/VBC/MessageBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
+
+[connection signal="button_up" from="MC/VBC/HBC/Control/Send" to="." method="_on_Send_button_up"]

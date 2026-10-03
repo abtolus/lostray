@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/images/ui/input_pressed.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/ui/input_normal.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/sprites/decelerator_shmai_pressed.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/sprites/accelerator_shmai_pressed.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/sprites/accelerator_shmai.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/sprites/decelerator_shmai.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 64 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 64, 64 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 256, 256 )
+
+[node name="Inputs" type="Node2D"]
+
+[node name="TSBL" type="TouchScreenButton" parent="."]
+position = Vector2( 288, 952 )
+rotation = 3.14159
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 1 )
+shape = SubResource( 1 )
+action = "left"
+
+[node name="TSBR" type="TouchScreenButton" parent="."]
+position = Vector2( 384, 760 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 1 )
+shape = SubResource( 2 )
+action = "right"
+
+[node name="TSBAccelerate" type="TouchScreenButton" parent="."]
+position = Vector2( 1628, 760 )
+scale = Vector2( 0.38, 0.38 )
+normal = ExtResource( 5 )
+pressed = ExtResource( 4 )
+shape = SubResource( 3 )
+action = "accelerate"
+
+[node name="TSBDecelerate" type="TouchScreenButton" parent="."]
+position = Vector2( 1336, 760 )
+scale = Vector2( 0.38, 0.38 )
+normal = ExtResource( 6 )
+pressed = ExtResource( 3 )
+shape = SubResource( 3 )
+action = "decelerate"

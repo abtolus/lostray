@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://ui/menu_container/multiplayer_menu/server_components/server_label.gd" type="Script" id=1]
+[ext_resource path="res://resources/theme.tres" type="Theme" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=29]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=30]
+size = 48
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 29 )
+
+[node name="ServerLabel" type="Control" groups=["server_label"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1176.0
+margin_bottom = -1032.0
+rect_min_size = Vector2( 1248, 96 )
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.12549, 0.14902, 0.160784, 1 )
+
+[node name="HBC" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="HBC"]
+margin_right = 1248.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 1248, 96 )
+custom_fonts/font = SubResource( 2 )
+align = 2
+valign = 1
+
+[node name="Join" type="Button" parent="HBC/Label"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 16.0
+margin_top = -32.0
+margin_right = 144.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 128, 64 )
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 30 )
+text = "Join"
+
+[connection signal="button_up" from="HBC/Label/Join" to="." method="_on_Join_button_up"]

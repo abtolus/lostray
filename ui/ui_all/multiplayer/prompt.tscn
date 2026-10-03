@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://ui/ui_all/multiplayer/prompt.gd" type="Script" id=1]
+[ext_resource path="res://resources/theme.tres" type="Theme" id=2]
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=4]
+size = 64
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=6]
+size = 48
+font_data = SubResource( 5 )
+
+[node name="Prompt" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.101961, 0.164706, 0.219608, 1 )
+
+[node name="C" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -128.0
+margin_right = 400.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 800, 320 )
+
+[node name="CR" type="ColorRect" parent="C"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0509804, 0.0862745, 0.121569, 1 )
+
+[node name="MC" type="MarginContainer" parent="C"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -16.0
+
+[node name="VBC" type="VBoxContainer" parent="C/MC"]
+margin_right = 768.0
+margin_bottom = 288.0
+custom_constants/separation = 16
+
+[node name="ColorRect" type="ColorRect" parent="C/MC/VBC"]
+margin_right = 768.0
+margin_bottom = 208.0
+size_flags_vertical = 3
+color = Color( 0.101961, 0.164706, 0.156863, 1 )
+
+[node name="String" type="Label" parent="C/MC/VBC/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 4 )
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Control" type="Control" parent="C/MC/VBC"]
+margin_top = 224.0
+margin_right = 768.0
+margin_bottom = 288.0
+rect_min_size = Vector2( 0, 64 )
+
+[node name="Okay" type="Button" parent="C/MC/VBC/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -98.0
+margin_top = -32.0
+margin_right = 98.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 196, 0 )
+theme = ExtResource( 2 )
+custom_colors/font_color = Color( 0.839216, 0.839216, 1, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Okay"
+
+[connection signal="button_up" from="C/MC/VBC/Control/Okay" to="." method="_on_Okay_button_up"]

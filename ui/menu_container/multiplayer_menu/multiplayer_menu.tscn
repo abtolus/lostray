@@ -1,0 +1,126 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://ui/menu_container/multiplayer_menu/multiplayer_menu.gd" type="Script" id=1]
+[ext_resource path="res://ui/menu_container/multiplayer_menu/lobby_menu/lobby_menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/theme.tres" type="Theme" id=3]
+
+[sub_resource type="Animation" id=34]
+length = 0.001
+
+[sub_resource type="Animation" id=35]
+resource_name = "searching"
+length = 1.2
+loop = true
+
+[sub_resource type="Animation" id=29]
+resource_name = "server_browser_apperance"
+length = 0.5
+
+[sub_resource type="Animation" id=36]
+resource_name = "server_browser_disapperance"
+length = 0.5
+
+[sub_resource type="DynamicFontData" id=16]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=17]
+size = 48
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 16 )
+
+[node name="MultiplayerMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 34 )
+anims/searching = SubResource( 35 )
+anims/server_browser_apperance = SubResource( 29 )
+anims/server_browser_disapperance = SubResource( 36 )
+
+[node name="CR" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.101961, 0.164706, 0.219608, 1 )
+
+[node name="Configuration" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -240.0
+margin_top = -176.0
+margin_right = 240.0
+margin_bottom = 304.0
+rect_min_size = Vector2( 480, 480 )
+
+[node name="CR" type="ColorRect" parent="Configuration"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0509804, 0.0862745, 0.121569, 1 )
+
+[node name="MC" type="MarginContainer" parent="Configuration"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -16.0
+
+[node name="VBC" type="VBoxContainer" parent="Configuration/MC"]
+margin_right = 448.0
+margin_bottom = 448.0
+rect_pivot_offset = Vector2( -1506, 128 )
+custom_constants/separation = 80
+
+[node name="CreateServer" type="Button" parent="Configuration/MC/VBC"]
+margin_right = 448.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 0, 96 )
+theme = ExtResource( 3 )
+text = "Create Server"
+
+[node name="FindServers" type="Button" parent="Configuration/MC/VBC"]
+margin_top = 176.0
+margin_right = 448.0
+margin_bottom = 272.0
+rect_min_size = Vector2( 0, 96 )
+theme = ExtResource( 3 )
+text = "Find Servers"
+
+[node name="ManualSetup" type="Button" parent="Configuration/MC/VBC"]
+margin_top = 352.0
+margin_right = 448.0
+margin_bottom = 448.0
+rect_min_size = Vector2( 0, 96 )
+theme = ExtResource( 3 )
+text = "Manual Setup"
+
+[node name="CR2" type="ColorRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 1920, 128 )
+color = Color( 0.0509804, 0.0862745, 0.121569, 1 )
+
+[node name="Back" type="Button" parent="CR2"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 32.0
+margin_top = -32.0
+margin_right = 160.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 128, 64 )
+custom_colors/font_color = Color( 0.839216, 0.839216, 1, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Back"
+flat = true
+
+[node name="LobbyMenu" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[connection signal="button_up" from="Configuration/MC/VBC/CreateServer" to="." method="_on_CreateServer_button_up"]
+[connection signal="button_up" from="Configuration/MC/VBC/FindServers" to="." method="_on_FindServers_button_up"]
+[connection signal="button_up" from="Configuration/MC/VBC/ManualSetup" to="." method="_on_ManualSetup_button_up"]
+[connection signal="button_up" from="CR2/Back" to="." method="_on_Back_button_up"]

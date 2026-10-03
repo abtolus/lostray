@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/lastyon_dimensionless_driveway.mp3-ee36244fa5be6ab092fc1ba6e5056dc8.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/lastyon_dimensionless_driveway.mp3"
+dest_files=[ "res://.import/lastyon_dimensionless_driveway.mp3-ee36244fa5be6ab092fc1ba6e5056dc8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

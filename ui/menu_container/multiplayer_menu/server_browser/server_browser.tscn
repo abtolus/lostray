@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://ui/menu_container/multiplayer_menu/server_browser/server_browser.gd" type="Script" id=1]
+[ext_resource path="res://ui/menu_container/multiplayer_menu/server_components/server_listener.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/theme.tres" type="Theme" id=3]
+
+[sub_resource type="DynamicFontData" id=27]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=28]
+size = 48
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 27 )
+
+[sub_resource type="DynamicFontData" id=29]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=30]
+size = 48
+font_data = SubResource( 29 )
+
+[node name="ServerBrowser" type="Control"]
+margin_left = 320.0
+margin_top = 192.0
+margin_right = 1600.0
+margin_bottom = 1032.0
+rect_min_size = Vector2( 1280, 840 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0509804, 0.0862745, 0.121569, 1 )
+
+[node name="MC" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -16.0
+
+[node name="VBC" type="VBoxContainer" parent="MC"]
+margin_right = 1248.0
+margin_bottom = 808.0
+custom_constants/separation = 16
+alignment = 1
+
+[node name="Title" type="Control" parent="MC/VBC"]
+margin_right = 1248.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 64 )
+
+[node name="Label" type="Label" parent="MC/VBC/Title"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = -32.0
+margin_right = 256.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 512, 64 )
+custom_colors/font_color = Color( 0.839216, 0.839216, 1, 1 )
+custom_fonts/font = SubResource( 28 )
+text = "Public Servers"
+align = 1
+valign = 1
+
+[node name="Back" type="Button" parent="MC/VBC/Title"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = -32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 256, 64 )
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 30 )
+text = "Go Back"
+
+[node name="CR" type="ColorRect" parent="MC/VBC"]
+margin_top = 80.0
+margin_right = 1248.0
+margin_bottom = 808.0
+size_flags_vertical = 3
+color = Color( 0.101961, 0.164706, 0.156863, 1 )
+
+[node name="SC" type="ScrollContainer" parent="MC/VBC/CR"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 3
+
+[node name="PublicServers" type="VBoxContainer" parent="MC/VBC/CR/SC"]
+margin_right = 1248.0
+margin_bottom = 724.0
+rect_min_size = Vector2( 1248, 724 )
+custom_constants/separation = 24
+
+[node name="ServerListener" parent="." instance=ExtResource( 2 )]
+
+[connection signal="button_up" from="MC/VBC/Title/Back" to="." method="_on_Back_button_up"]
+[connection signal="AddedServer" from="ServerListener" to="." method="_on_ServerListener_AddedServer"]
+[connection signal="RemovedServer" from="ServerListener" to="." method="_on_ServerListener_RemovedServer"]

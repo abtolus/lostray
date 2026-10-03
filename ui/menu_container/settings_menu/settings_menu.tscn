@@ -1,0 +1,394 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://ui/menu_container/settings_menu/settings_menu.gd" type="Script" id=1]
+[ext_resource path="res://resources/theme.tres" type="Theme" id=2]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.188235, 0.211765, 0.286275, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0, 0, 0, 0 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.313726, 0.337255, 0.411765, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 0 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.188235, 0.211765, 0.286275, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 0 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=6]
+content_margin_left = 12.0
+content_margin_right = 12.0
+bg_color = Color( 0.0627451, 0.0862745, 0.0980392, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id=27]
+VScrollBar/styles/grabber = SubResource( 3 )
+VScrollBar/styles/grabber_highlight = SubResource( 4 )
+VScrollBar/styles/grabber_pressed = SubResource( 5 )
+VScrollBar/styles/scroll = SubResource( 6 )
+
+[sub_resource type="DynamicFontData" id=23]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=24]
+size = 64
+outline_size = 4
+outline_color = Color( 0.0627451, 0.0862745, 0.0980392, 1 )
+font_data = SubResource( 23 )
+
+[sub_resource type="StyleBoxFlat" id=28]
+bg_color = Color( 0.101961, 0.164706, 0.219608, 1 )
+
+[sub_resource type="DynamicFontData" id=21]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=22]
+size = 48
+outline_size = 3
+outline_color = Color( 0.0627451, 0.0862745, 0.0980392, 1 )
+font_data = SubResource( 21 )
+
+[sub_resource type="DynamicFontData" id=29]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=30]
+size = 40
+font_data = SubResource( 29 )
+
+[sub_resource type="DynamicFontData" id=16]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=17]
+size = 48
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 16 )
+
+[node name="SettingsMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="CR" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.101961, 0.164706, 0.219608, 1 )
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -480.0
+margin_top = -272.0
+margin_right = 480.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 960, 672 )
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0509804, 0.0862745, 0.121569, 1 )
+
+[node name="MC" type="MarginContainer" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -16.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/MC"]
+margin_right = 928.0
+margin_bottom = 640.0
+theme = SubResource( 27 )
+scroll_horizontal_enabled = false
+
+[node name="VBC" type="VBoxContainer" parent="Control/MC/ScrollContainer"]
+margin_right = 904.0
+margin_bottom = 896.0
+rect_min_size = Vector2( 832, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 64
+
+[node name="Sound" type="VBoxContainer" parent="Control/MC/ScrollContainer/VBC"]
+margin_right = 904.0
+margin_bottom = 272.0
+custom_constants/separation = 32
+
+[node name="Label" type="Label" parent="Control/MC/ScrollContainer/VBC/Sound"]
+margin_right = 904.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 80 )
+theme = ExtResource( 2 )
+custom_colors/font_color = Color( 0.839216, 0.839216, 1, 1 )
+custom_fonts/font = SubResource( 24 )
+custom_styles/normal = SubResource( 28 )
+text = "Sound"
+align = 1
+valign = 1
+
+[node name="HBC" type="HBoxContainer" parent="Control/MC/ScrollContainer/VBC/Sound"]
+margin_top = 112.0
+margin_right = 904.0
+margin_bottom = 176.0
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="Control/MC/ScrollContainer/VBC/Sound/HBC"]
+margin_right = 648.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 64 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.839216, 0.839216, 1, 1 )
+custom_fonts/font = SubResource( 22 )
+text = "Music volume"
+valign = 1
+
+[node name="MusicHS" type="HSlider" parent="Control/MC/ScrollContainer/VBC/Sound/HBC"]
+margin_left = 648.0
+margin_right = 904.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 256, 48 )
+theme = ExtResource( 2 )
+ticks_on_borders = true
+
+[node name="HBC2" type="HBoxContainer" parent="Control/MC/ScrollContainer/VBC/Sound"]
+margin_top = 208.0
+margin_right = 904.0
+margin_bottom = 272.0
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="Control/MC/ScrollContainer/VBC/Sound/HBC2"]
+margin_right = 648.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 64 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.839216, 0.839216, 1, 1 )
+custom_fonts/font = SubResource( 22 )
+text = "Sound effects volume"
+valign = 1
+
+[node name="SoundEffectsHS" type="HSlider" parent="Control/MC/ScrollContainer/VBC/Sound/HBC2"]
+margin_left = 648.0
+margin_right = 904.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 256, 48 )
+theme = ExtResource( 2 )
+ticks_on_borders = true
+
+[node name="Gameplay" type="VBoxContainer" parent="Control/MC/ScrollContainer/VBC"]
+margin_top = 336.0
+margin_right = 904.0
+margin_bottom = 896.0
+custom_constants/separation = 32
+
+[node name="Label" type="Label" parent="Control/MC/ScrollContainer/VBC/Gameplay"]
+margin_right = 904.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 80 )
+theme = ExtResource( 2 )
+custom_colors/font_color = Color( 0.839216, 0.839216, 1, 1 )
+custom_fonts/font = SubResource( 24 )
+custom_styles/normal = SubResource( 28 )
+text = "Gameplay"
+align = 1
+valign = 1
+
+[node name="AutoAcceleration" type="HBoxContainer" parent="Control/MC/ScrollContainer/VBC/Gameplay"]
+margin_top = 112.0
+margin_right = 904.0
+margin_bottom = 176.0
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="Control/MC/ScrollContainer/VBC/Gameplay/AutoAcceleration"]
+margin_right = 648.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 64 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.839216, 0.839216, 1, 1 )
+custom_fonts/font = SubResource( 22 )
+text = "Auto-Acceleration"
+valign = 1
+
+[node name="ButtonAA" type="Button" parent="Control/MC/ScrollContainer/VBC/Gameplay/AutoAcceleration"]
+margin_left = 648.0
+margin_right = 904.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 256, 64 )
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 30 )
+toggle_mode = true
+text = "Off"
+
+[node name="TimesOfDay" type="HBoxContainer" parent="Control/MC/ScrollContainer/VBC/Gameplay"]
+margin_top = 208.0
+margin_right = 904.0
+margin_bottom = 272.0
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="Control/MC/ScrollContainer/VBC/Gameplay/TimesOfDay"]
+margin_right = 648.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 64 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.839216, 0.839216, 1, 1 )
+custom_fonts/font = SubResource( 22 )
+text = "Times of day"
+valign = 1
+
+[node name="OptionButtonTOD" type="OptionButton" parent="Control/MC/ScrollContainer/VBC/Gameplay/TimesOfDay"]
+margin_left = 648.0
+margin_right = 904.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 256, 64 )
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 30 )
+text = "Daytime"
+align = 1
+items = [ "Daytime", null, false, 0, null, "Twilight", null, false, 1, null, "Nighttime", null, false, 2, null ]
+selected = 0
+
+[node name="CameraRotationSpeed" type="HBoxContainer" parent="Control/MC/ScrollContainer/VBC/Gameplay"]
+margin_top = 304.0
+margin_right = 904.0
+margin_bottom = 368.0
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="Control/MC/ScrollContainer/VBC/Gameplay/CameraRotationSpeed"]
+margin_right = 648.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 64 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.839216, 0.839216, 1, 1 )
+custom_fonts/font = SubResource( 22 )
+text = "Camera rotation speed"
+valign = 1
+
+[node name="OptionButtonCRS" type="OptionButton" parent="Control/MC/ScrollContainer/VBC/Gameplay/CameraRotationSpeed"]
+margin_left = 648.0
+margin_right = 904.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 256, 64 )
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 30 )
+text = "Normal"
+align = 1
+items = [ "Low", null, false, 0, null, "Mid-low", null, false, 1, null, "Normal", null, false, 2, null, "Mid-high", null, false, 3, null, "High", null, false, 4, null ]
+selected = 2
+
+[node name="Difficulty" type="HBoxContainer" parent="Control/MC/ScrollContainer/VBC/Gameplay"]
+margin_top = 400.0
+margin_right = 904.0
+margin_bottom = 464.0
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="Control/MC/ScrollContainer/VBC/Gameplay/Difficulty"]
+margin_right = 648.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 64 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.839216, 0.839216, 1, 1 )
+custom_fonts/font = SubResource( 22 )
+text = "Difficulty"
+valign = 1
+
+[node name="OptionButtonD" type="OptionButton" parent="Control/MC/ScrollContainer/VBC/Gameplay/Difficulty"]
+margin_left = 648.0
+margin_right = 904.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 256, 64 )
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 30 )
+text = "Default"
+align = 1
+items = [ "Easy", null, false, 0, null, "Normal", null, false, 1, null, "Default", null, false, 2, null, "Hard", null, false, 3, null, "Insane", null, false, 4, null ]
+selected = 2
+
+[node name="ShowFPS" type="HBoxContainer" parent="Control/MC/ScrollContainer/VBC/Gameplay"]
+margin_top = 496.0
+margin_right = 904.0
+margin_bottom = 560.0
+custom_constants/separation = 0
+
+[node name="Label" type="Label" parent="Control/MC/ScrollContainer/VBC/Gameplay/ShowFPS"]
+margin_right = 648.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 64 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0.839216, 0.839216, 1, 1 )
+custom_fonts/font = SubResource( 22 )
+text = "Show FPS"
+valign = 1
+
+[node name="ButtonSF" type="Button" parent="Control/MC/ScrollContainer/VBC/Gameplay/ShowFPS"]
+margin_left = 648.0
+margin_right = 904.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 256, 64 )
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 30 )
+toggle_mode = true
+text = "Off"
+
+[node name="CR2" type="ColorRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1920, 128 )
+color = Color( 0.0509804, 0.0862745, 0.121569, 1 )
+
+[node name="Back" type="Button" parent="CR2"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 32.0
+margin_top = -32.0
+margin_right = 160.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 128, 64 )
+custom_colors/font_color = Color( 0.839216, 0.839216, 1, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Back"
+flat = true
+
+[connection signal="value_changed" from="Control/MC/ScrollContainer/VBC/Sound/HBC/MusicHS" to="." method="_on_MusicHS_value_changed"]
+[connection signal="value_changed" from="Control/MC/ScrollContainer/VBC/Sound/HBC2/SoundEffectsHS" to="." method="_on_SoundEffectsHS_value_changed"]
+[connection signal="toggled" from="Control/MC/ScrollContainer/VBC/Gameplay/AutoAcceleration/ButtonAA" to="." method="_on_ButtonAA_toggled"]
+[connection signal="item_selected" from="Control/MC/ScrollContainer/VBC/Gameplay/TimesOfDay/OptionButtonTOD" to="." method="_on_OptionButtonTOD_item_selected"]
+[connection signal="item_selected" from="Control/MC/ScrollContainer/VBC/Gameplay/CameraRotationSpeed/OptionButtonCRS" to="." method="_on_OptionButtonCRS_item_selected"]
+[connection signal="item_selected" from="Control/MC/ScrollContainer/VBC/Gameplay/Difficulty/OptionButtonD" to="." method="_on_OptionButtonD_item_selected"]
+[connection signal="toggled" from="Control/MC/ScrollContainer/VBC/Gameplay/ShowFPS/ButtonSF" to="." method="_on_ButtonSF_toggled"]
+[connection signal="button_up" from="CR2/Back" to="." method="_on_Back_button_up"]

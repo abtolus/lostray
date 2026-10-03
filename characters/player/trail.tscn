@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://characters/player/trail.gd" type="Script" id=1]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0.47546 ), 0.0, 0.0, 0, 0, Vector2( 0.759677, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.998387, 0.978528 ), 0.0, 0.0, 0, 0 ]
+
+[node name="Trail" type="Line2D"]
+width = 6.0
+width_curve = SubResource( 1 )
+default_color = Color( 0.839216, 0.839216, 1, 1 )
+script = ExtResource( 1 )
+
+[node name="FadeOut" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="FadeOut" to="." method="_on_FadeOut_timeout"]

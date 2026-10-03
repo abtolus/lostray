@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://control_devices/transmitters/transmitter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://control_devices/transmitters/clowork/clowork.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 64.0
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0.00487013, 0.0460123 ), 0.0, 0.0, 0, 0, Vector2( 0.998376, 0.47546 ), 1.4, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=4]
+colors = PoolColorArray( 0, 0, 0, 1, 1, 0.564706, 0.564706, 1 )
+
+[sub_resource type="Gradient" id=5]
+colors = PoolColorArray( 0, 0, 0, 1, 0.752941, 0.752941, 0.752941, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 0 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.752941, 0.752941, 0.752941, 1 )
+border_blend = true
+corner_radius_top_left = 64
+corner_radius_top_right = 64
+corner_radius_bottom_right = 64
+corner_radius_bottom_left = 64
+
+[node name="Clowork" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="ClockworkSurface" type="Area2D" parent="." index="2"]
+position = Vector2( 96, 96 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClockworkSurface" index="0"]
+shape = SubResource( 1 )
+
+[node name="PlayerHand" type="Node2D" parent="ClockworkSurface" index="1"]
+
+[node name="Line2D" type="Line2D" parent="ClockworkSurface/PlayerHand" index="0"]
+points = PoolVector2Array( 0, 0, 0, -64 )
+width = 16.0
+width_curve = SubResource( 3 )
+gradient = SubResource( 4 )
+
+[node name="CloworkHand" type="Node2D" parent="ClockworkSurface" index="2"]
+rotation = 3.14159
+
+[node name="Line2D" type="Line2D" parent="ClockworkSurface/CloworkHand" index="0"]
+points = PoolVector2Array( 0, 0, 0, -64 )
+width = 16.0
+width_curve = SubResource( 3 )
+gradient = SubResource( 5 )
+
+[node name="Panel" type="Panel" parent="ClockworkSurface" index="3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -64.0
+margin_top = -64.0
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 128, 128 )
+custom_styles/panel = SubResource( 2 )
+
+[connection signal="body_entered" from="ClockworkSurface" to="." method="_on_CloworkSurface_body_entered"]
+[connection signal="body_exited" from="ClockworkSurface" to="." method="_on_CloworkSurface_body_exited"]

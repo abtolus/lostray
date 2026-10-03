@@ -1,0 +1,280 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/images/ui/input_normal.png" type="Texture" id=2]
+
+[sub_resource type="DynamicFontData" id=20]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+outline_size = 4
+outline_color = Color( 0.0627451, 0.0862745, 0.0980392, 1 )
+font_data = SubResource( 20 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.188235, 0.211765, 0.286275, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0, 0, 0, 0 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.313726, 0.337255, 0.411765, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 0 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.188235, 0.211765, 0.286275, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 0 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=6]
+content_margin_left = 12.0
+content_margin_right = 12.0
+bg_color = Color( 0.0627451, 0.0862745, 0.0980392, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id=7]
+VScrollBar/styles/grabber = SubResource( 3 )
+VScrollBar/styles/grabber_highlight = SubResource( 4 )
+VScrollBar/styles/grabber_pressed = SubResource( 5 )
+VScrollBar/styles/scroll = SubResource( 6 )
+
+[sub_resource type="DynamicFontData" id=21]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=9]
+size = 48
+outline_size = 2
+outline_color = Color( 0.0627451, 0.0862745, 0.0980392, 1 )
+font_data = SubResource( 21 )
+
+[sub_resource type="DynamicFontData" id=19]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=10]
+size = 64
+outline_size = 3
+outline_color = Color( 0.0627451, 0.0862745, 0.0980392, 1 )
+font_data = SubResource( 19 )
+
+[node name="TutorialIntroduction" type="Control"]
+margin_right = 1024.0
+margin_bottom = 752.0
+rect_min_size = Vector2( 1024, 752 )
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0627451, 0.0862745, 0.160784, 1 )
+
+[node name="MC" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -16.0
+mouse_filter = 1
+
+[node name="VBC" type="VBoxContainer" parent="MC"]
+margin_right = 992.0
+margin_bottom = 720.0
+custom_constants/separation = 16
+
+[node name="Title" type="Label" parent="MC/VBC"]
+margin_right = 992.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 0, 80 )
+custom_fonts/font = SubResource( 2 )
+text = "The Introduction"
+align = 1
+valign = 1
+
+[node name="SC" type="ScrollContainer" parent="MC/VBC"]
+margin_top = 96.0
+margin_right = 992.0
+margin_bottom = 720.0
+size_flags_vertical = 3
+theme = SubResource( 7 )
+scroll_horizontal_enabled = false
+
+[node name="VBC" type="VBoxContainer" parent="MC/VBC/SC"]
+margin_right = 968.0
+margin_bottom = 1120.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 32
+
+[node name="Purpose" type="Control" parent="MC/VBC/SC/VBC"]
+margin_right = 968.0
+margin_bottom = 224.0
+rect_min_size = Vector2( 0, 224 )
+mouse_filter = 1
+
+[node name="CR" type="ColorRect" parent="MC/VBC/SC/VBC/Purpose"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.133333, 0.133333, 0.133333, 1 )
+
+[node name="MC" type="MarginContainer" parent="MC/VBC/SC/VBC/Purpose"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -16.0
+mouse_filter = 1
+
+[node name="Label" type="Label" parent="MC/VBC/SC/VBC/Purpose/MC"]
+margin_right = 936.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 640, 192 )
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 9 )
+text = "Others say that this game is all about sending data collected from transmitters
+to win, or maybe it's more than that."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Inputs" type="Control" parent="MC/VBC/SC/VBC"]
+margin_top = 256.0
+margin_right = 968.0
+margin_bottom = 480.0
+rect_min_size = Vector2( 0, 224 )
+mouse_filter = 1
+
+[node name="CR" type="ColorRect" parent="MC/VBC/SC/VBC/Inputs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.133333, 0.133333, 0.133333, 1 )
+
+[node name="MC" type="MarginContainer" parent="MC/VBC/SC/VBC/Inputs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -16.0
+mouse_filter = 1
+
+[node name="HBC" type="HBoxContainer" parent="MC/VBC/SC/VBC/Inputs/MC"]
+margin_right = 936.0
+margin_bottom = 192.0
+custom_constants/separation = 48
+
+[node name="HBC" type="HBoxContainer" parent="MC/VBC/SC/VBC/Inputs/MC/HBC"]
+margin_right = 240.0
+margin_bottom = 192.0
+custom_constants/separation = 48
+
+[node name="C" type="Control" parent="MC/VBC/SC/VBC/Inputs/MC/HBC/HBC"]
+margin_right = 96.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 96, 128 )
+mouse_filter = 1
+
+[node name="TR" type="TextureRect" parent="MC/VBC/SC/VBC/Inputs/MC/HBC/HBC/C"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 48, 96 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="TR" type="TextureRect" parent="MC/VBC/SC/VBC/Inputs/MC/HBC/HBC"]
+margin_left = 144.0
+margin_right = 240.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 96, 0 )
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="MC/VBC/SC/VBC/Inputs/MC/HBC"]
+margin_left = 288.0
+margin_right = 936.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 640, 192 )
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 9 )
+text = "The actions of turning left and right can be done by pressing
+each one of these buttons."
+align = 1
+autowrap = true
+
+[node name="Description" type="Control" parent="MC/VBC/SC/VBC"]
+margin_top = 512.0
+margin_right = 968.0
+margin_bottom = 1120.0
+rect_min_size = Vector2( 0, 608 )
+mouse_filter = 1
+
+[node name="CR" type="ColorRect" parent="MC/VBC/SC/VBC/Description"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.133333, 0.133333, 0.133333, 1 )
+
+[node name="MC" type="MarginContainer" parent="MC/VBC/SC/VBC/Description"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -16.0
+mouse_filter = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MC/VBC/SC/VBC/Description/MC"]
+margin_right = 936.0
+margin_bottom = 576.0
+custom_constants/separation = 16
+
+[node name="Title" type="Label" parent="MC/VBC/SC/VBC/Description/MC/VBoxContainer"]
+margin_right = 936.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 640, 80 )
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 10 )
+text = "Description"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Body" type="Label" parent="MC/VBC/SC/VBC/Description/MC/VBoxContainer"]
+margin_top = 96.0
+margin_right = 936.0
+margin_bottom = 576.0
+rect_min_size = Vector2( 640, 480 )
+mouse_filter = 1
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 9 )
+text = "This one might explain to you just a brief overview of the core gameplay, because it says that you are a driver and is destined to transfer data in the fast-paced situation in which against the hacker trying to hack the quadrant you are in to beat you up, therefore if you're still thinking that it's all about driving fast, try thinking again."
+autowrap = true

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://control_devices/control_device.tscn" type="PackedScene" id=1]
+
+[node name="Receiver" instance=ExtResource( 1 )]
+script = null
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PoolVector2Array( -32, -12, -12, -32, 12, -32, 32, -12, 32, 12, 12, 32, -12, 32, -32, 12 )

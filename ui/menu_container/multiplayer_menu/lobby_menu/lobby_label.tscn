@@ -1,0 +1,94 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
+
+[node name="LobbyLabel" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1536.0
+margin_bottom = -1016.0
+rect_min_size = Vector2( 792, 128 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0627451, 0.0862745, 0.0980392, 1 )
+
+[node name="MC" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 16.0
+margin_right = -8.0
+margin_bottom = -16.0
+
+[node name="HBC" type="HBoxContainer" parent="MC"]
+margin_right = 776.0
+margin_bottom = 96.0
+alignment = 1
+
+[node name="C" type="Control" parent="MC/HBC"]
+margin_right = 676.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="MC/HBC/C"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 16.0
+margin_top = -32.0
+margin_right = 400.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 384, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+valign = 1
+
+[node name="ID" type="Label" parent="MC/HBC/C"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -272.0
+margin_top = -32.0
+margin_right = -16.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 256, 64 )
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 2 )
+text = "13434553435"
+align = 1
+valign = 1
+
+[node name="C2" type="Control" parent="MC/HBC"]
+margin_left = 680.0
+margin_right = 776.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 96, 96 )
+
+[node name="CR" type="ColorRect" parent="MC/HBC/C2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.133333, 0.133333, 0.133333, 1 )
+
+[node name="Sprite" type="TextureRect" parent="MC/HBC/C2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = -40.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 80, 80 )
+rect_rotation = -45.0
+rect_pivot_offset = Vector2( 40, 40 )
+expand = true
+stretch_mode = 6

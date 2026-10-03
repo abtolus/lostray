@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://control_devices/transmitters/transmitter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://control_devices/transmitters/cameran/cameran.gd" type="Script" id=2]
+[ext_resource path="res://assets/images/ui/input_normal.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 64, 64 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 0 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 1, 1, 1, 1 )
+border_blend = true
+
+[node name="Cameran" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="CameraViewport" type="Area2D" parent="." index="2"]
+position = Vector2( 96, 96 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraViewport" index="0"]
+shape = SubResource( 1 )
+
+[node name="Panel" type="Panel" parent="CameraViewport" index="1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -64.0
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 128, 128 )
+rect_pivot_offset = Vector2( 64, 64 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="CameraViewport/Panel" index="0"]
+self_modulate = Color( 1, 1, 1, 0.564706 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = -32.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[connection signal="body_entered" from="CameraViewport" to="." method="_on_CameraViewport_body_entered"]
+[connection signal="body_exited" from="CameraViewport" to="." method="_on_CameraViewport_body_exited"]

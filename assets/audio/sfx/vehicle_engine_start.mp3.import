@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/vehicle_engine_start.mp3-6f4055d41af3e6a7f2fbf7a2ed1404c5.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/vehicle_engine_start.mp3"
+dest_files=[ "res://.import/vehicle_engine_start.mp3-6f4055d41af3e6a7f2fbf7a2ed1404c5.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

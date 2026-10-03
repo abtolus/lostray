@@ -1,0 +1,105 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/audio/sfx/vehicle_engine_start.mp3" type="AudioStream" id=1]
+[ext_resource path="res://characters/player/player.gd" type="Script" id=2]
+[ext_resource path="res://assets/audio/sfx/friction.mp3" type="AudioStream" id=3]
+[ext_resource path="res://assets/images/sprites/underglow_light.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/sprites/headlight.png" type="Texture" id=5]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 32.0
+height = 64.0
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 384.0
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( 32, -32, 40, -31, 48, -28, 55, -22, 60, -16, 63, -9, 64, 0, 63, 9, 60, 16, 55, 23, 48, 28, 40, 31, 32, 32, -32, 32, -40, 31, -48, 28, -55, 23, -60, 16, -63, 9, -64, 0, -63, -8, -59, -17, -54, -23, -48, -28, -40, -31, -33, -32 )
+
+[node name="Player" type="KinematicBody2D" groups=["player"]]
+collision_mask = 6
+script = ExtResource( 2 )
+
+[node name="Trail" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Position2D" type="Position2D" parent="Trail"]
+position = Vector2( -36, 20 )
+
+[node name="Position2D2" type="Position2D" parent="Trail"]
+position = Vector2( -36, -20 )
+
+[node name="Sprite" type="Sprite" parent="."]
+light_mask = 2
+scale = Vector2( 0.5, 0.5 )
+z_index = 2
+
+[node name="LeftHeadlight" type="Light2D" parent="Sprite"]
+position = Vector2( 56, -32 )
+scale = Vector2( 4, 7 )
+texture = ExtResource( 5 )
+offset = Vector2( 130, 0 )
+texture_scale = 0.2
+energy = 1.75
+range_z_min = -1
+range_z_max = 1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_filter = 1
+
+[node name="RightHeadlight" type="Light2D" parent="Sprite"]
+position = Vector2( 56, 13 )
+scale = Vector2( 4, 7 )
+texture = ExtResource( 5 )
+offset = Vector2( 130, 0 )
+texture_scale = 0.2
+energy = 1.75
+range_z_min = -1
+range_z_max = 1
+shadow_enabled = true
+shadow_filter = 1
+
+[node name="UnderglowLight" type="Light2D" parent="Sprite"]
+visible = false
+scale = Vector2( 1.8, 0.8 )
+texture = ExtResource( 4 )
+energy = 1.5
+range_z_min = -1
+range_z_max = 1
+shadow_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.5708
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="SoundEffects" type="Node" parent="."]
+
+[node name="VehicleEngineASP" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = ExtResource( 1 )
+volume_db = -8.0
+bus = "Sound effects"
+
+[node name="FrictionASP" type="AudioStreamPlayer" parent="SoundEffects"]
+stream = ExtResource( 3 )
+volume_db = -8.0
+bus = "Sound effects"
+
+[node name="Timer" type="Node" parent="."]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+light_mask = 2
+occluder = SubResource( 3 )
+light_mask = 2
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

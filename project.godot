@@ -1,0 +1,182 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "StaticBody2D",
+"class": "ControlDevice",
+"language": "GDScript",
+"path": "res://control_devices/control_device.gd"
+}, {
+"base": "Resource",
+"class": "DataTres",
+"language": "GDScript",
+"path": "res://resources/data_tres.gd"
+}, {
+"base": "StaticBody2D",
+"class": "ElectricDoor",
+"language": "GDScript",
+"path": "res://control_devices/electric_doors/electric_door.gd"
+}, {
+"base": "DataTres",
+"class": "GlobalDataTres",
+"language": "GDScript",
+"path": "res://resources/global_data_tres.gd"
+}, {
+"base": "Node2D",
+"class": "Main",
+"language": "GDScript",
+"path": "res://locations/main/main.gd"
+}, {
+"base": "Node2D",
+"class": "MainMenu",
+"language": "GDScript",
+"path": "res://ui/menu_container/main_menu/main_menu.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://characters/player/player.gd"
+}, {
+"base": "DataTres",
+"class": "PlayerDataTres",
+"language": "GDScript",
+"path": "res://resources/player_data_tres.gd"
+}, {
+"base": "ControlDevice",
+"class": "Transmitter",
+"language": "GDScript",
+"path": "res://control_devices/transmitters/transmitter.gd"
+}, {
+"base": "CanvasLayer",
+"class": "UI",
+"language": "GDScript",
+"path": "res://ui/ui.gd"
+} ]
+_global_script_class_icons={
+"ControlDevice": "",
+"DataTres": "",
+"ElectricDoor": "",
+"GlobalDataTres": "",
+"Main": "",
+"MainMenu": "",
+"Player": "",
+"PlayerDataTres": "",
+"Transmitter": "",
+"UI": ""
+}
+
+[application]
+
+config/name="Lostray"
+config/description="2D Godot game highlighting multiplayer, cloud saving, unique puzzles, and intricate gameplay mechanics."
+run/main_scene="res://ui/menu_container/main_menu/main_menu.tscn"
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0.0627451, 0.0862745, 0.0980392, 1 )
+config/icon="res://assets/images/general/lostray__logo_main.png"
+boot_splash/minimum_display_time=1
+
+[autoload]
+
+GlobalData="*res://autoloads/global_data.gd"
+PlayerData="*res://autoloads/player_data.gd"
+NetworkData="*res://autoloads/network_data.gd"
+GlobalTscn="*res://autoloads/global_tscn.tscn"
+GlobalNodes="*res://autoloads/global_nodes.tscn"
+Supabase="*res://autoloads/supabase.gd"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray(  )
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[importer_defaults]
+
+texture={
+"compress/bptc_ldr": 0,
+"compress/hdr_mode": 0,
+"compress/lossy_quality": 0.7,
+"compress/mode": 0,
+"compress/normal_map": 0,
+"detect_3d": false,
+"flags/anisotropic": false,
+"flags/filter": false,
+"flags/mipmaps": false,
+"flags/repeat": 0,
+"flags/srgb": 2,
+"process/HDR_as_SRGB": false,
+"process/fix_alpha_border": true,
+"process/invert_color": false,
+"process/normal_map_invert_y": false,
+"process/premult_alpha": false,
+"size_limit": 0,
+"stream": false,
+"svg/scale": 1.0
+}
+
+[input]
+
+left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":65,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777231,"unicode":0,"echo":false,"script":null)
+ ]
+}
+right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":68,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777233,"unicode":0,"echo":false,"script":null)
+ ]
+}
+accelerate={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":87,"unicode":0,"echo":false,"script":null)
+ ]
+}
+decelerate={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+}
+interact={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="ControlDevice"
+2d_physics/layer_3="CollisionLayer"
+2d_physics/layer_4="Watchtower"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+2d/snapping/use_gpu_pixel_snap=true
+environment/default_clear_color=Color( 0.0627451, 0.0862745, 0.0980392, 1 )
+environment/default_environment="res://default_env.tres"

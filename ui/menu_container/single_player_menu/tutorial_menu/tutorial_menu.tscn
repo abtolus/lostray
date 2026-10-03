@@ -1,0 +1,117 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/images/ui/input_normal.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/ui/input_pressed.png" type="Texture" id=3]
+[ext_resource path="res://ui/menu_container/single_player_menu/tutorial_menu/tutorial_menu.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+outline_size = 3
+outline_color = Color( 0.0627451, 0.0862745, 0.0980392, 1 )
+font_data = SubResource( 1 )
+
+[node name="TutorialMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="CR" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.101961, 0.164706, 0.219608, 1 )
+
+[node name="C" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -316.0
+margin_right = 512.0
+margin_bottom = 436.0
+rect_min_size = Vector2( 1024, 752 )
+
+[node name="CR" type="ColorRect" parent="C"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -672.0
+margin_top = -376.0
+margin_right = 672.0
+margin_bottom = 376.0
+rect_min_size = Vector2( 1344, 0 )
+color = Color( 0, 0, 0, 0 )
+
+[node name="ColorRect" type="ColorRect" parent="C/CR"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -688.0
+margin_top = -80.0
+margin_right = 688.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 1376, 160 )
+color = Color( 0.0509804, 0.0862745, 0.121569, 1 )
+
+[node name="TBL" type="TextureButton" parent="C/CR"]
+modulate = Color( 0.564706, 0.588235, 0.6, 1 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -64.0
+margin_right = 128.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 128, 128 )
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 64, 64 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="TBR" type="TextureButton" parent="C/CR"]
+modulate = Color( 0.564706, 0.588235, 0.6, 1 )
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 128, 128 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="C"]
+margin_right = 1024.0
+margin_bottom = 752.0
+rect_min_size = Vector2( 1024, 752 )
+
+[node name="CR2" type="ColorRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1920, 128 )
+color = Color( 0.0509804, 0.0862745, 0.121569, 1 )
+
+[node name="Back" type="Button" parent="CR2"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 32.0
+margin_top = -32.0
+margin_right = 147.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 64 )
+custom_fonts/font = SubResource( 2 )
+text = "Back"
+flat = true
+
+[connection signal="button_up" from="C/CR/TBL" to="." method="_on_TBL_button_up"]
+[connection signal="button_up" from="C/CR/TBR" to="." method="_on_TBR_button_up"]
+[connection signal="button_up" from="CR2/Back" to="." method="_on_Back_button_up"]

@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/images/sprites/headlight.png" type="Texture" id=1]
+[ext_resource path="res://ui/menu_container/main_menu/path.gd" type="Script" id=2]
+[ext_resource path="res://assets/images/sprites/underglow_light.png" type="Texture" id=3]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, -99.0568, 97.0894, 99.0568, -97.0894, 0, -1761, -121.957, -126.4, 121.957, 126.4, 864, -1729, 59.1522, -61.7372, -59.1522, 61.7372, 832, -1376, 1.41421, -192.055, -1.41421, 192.055, 672, -1024, -54.7447, -56.6325, 54.7447, 56.6325, 704, -704, -192.109, 2.82843, 192.109, -2.82843, 1024, -672, -61.1151, 61.4736, 61.1151, -61.4736, 1376, -832, -125.691, -126.759, 125.691, 126.759, 1729, -864, 94.2611, -155.484, -94.2611, 155.484, 1761, 0, 99.0802, -153.611, -99.0802, 153.611, -1761, 0, -123.286, -93.8184, 123.286, 93.8184, -1729, 864, -121.592, 87.9183, 121.592, -87.9183, -1376, 832, -92.5659, 62.0636, 92.5659, -62.0636, -1248, 480, -192.153, -0.238604, 192.153, 0.238604, -864, 416, -58.7051, -60.5988, 58.7051, 60.5988, -480, 480, 0, -191.724, 0, 191.724, -416, 896, 61.643, -95.4151, -61.643, 95.4151, -480, 1280, 90.6119, -126.16, -90.6119, 126.16, -832, 1376, -96.3966, -125.645, 96.3966, 125.645, -864, 1729, -96.812, 94.3855, 96.812, -94.3855, 0, 1761, -4.87939, 349.254, 4.87939, -349.254, 0, 0, 101.61, 94.4178, -101.61, -94.4178, 0, -1761, 92.8951, -122.861, -92.8951, 122.861, -864, -1729, -62.2957, -62.2957, 62.2957, 62.2957, -832, -1376, -62, -60, 62, 60, -480, -1280, 0, -187.895, 0, 187.895, -416, -896, 57.9564, -52.9167, -57.9564, 52.9167, -480, -480, 192.822, 1.05946, -192.822, -1.05946, -896, -416, 61.0314, 61.0314, -61.0314, -61.0314, -1280, -480, 55.9454, 58.4884, -55.9454, -58.4884, -1376, -832, 122.771, -94.1804, -122.771, 94.1804, -1729, -864, -95.8339, -159.203, 95.8339, 159.203, -1761, 0, -98.3027, -155.648, 98.3027, 155.648, 1761, 0, 122.3, -93.1507, -122.3, 93.1507, 1729, 864, 56.0633, 56.0633, -56.0633, -56.0633, 1376, 832, 67.4843, 64.1101, -67.4843, -64.1101, 1312, 512, 55.6745, -60.7359, -55.6745, 60.7359, 928, 512, 60.5988, -58.7051, -60.5988, 58.7051, 896, 896, 62.56, -64.3474, -62.56, 64.3474, 512, 928, -59.6483, -64.4201, 59.6483, 64.4201, 512, 1312, -62.2254, -56.5685, 62.2254, 56.5685, 832, 1376, 100.65, -125.922, -100.65, 125.922, 864, 1729, 100.886, 92.5903, -100.886, -92.5903, 0, 1761, 0, 0, 0, 0, 0, 0 )
+}
+
+[node name="Path" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+rotation = -1.62962
+z_index = 2
+
+[node name="Sprite" type="Sprite" parent="Path2D/PathFollow2D"]
+scale = Vector2( 0.5, 0.5 )
+z_index = 2
+
+[node name="Camera2D" type="Camera2D" parent="Path2D/PathFollow2D/Sprite"]
+position = Vector2( 96, 384 )
+rotation = 1.5708
+rotating = true
+current = true
+zoom = Vector2( 0.75, 0.75 )
+
+[node name="LeftHeadlight" type="Light2D" parent="Path2D/PathFollow2D/Sprite"]
+position = Vector2( 56, -32 )
+scale = Vector2( 4, 7 )
+texture = ExtResource( 1 )
+offset = Vector2( 130, 0 )
+texture_scale = 0.2
+energy = 1.75
+range_z_min = -1
+range_z_max = 1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_filter = 1
+
+[node name="RightHeadlight" type="Light2D" parent="Path2D/PathFollow2D/Sprite"]
+position = Vector2( 56, 13 )
+scale = Vector2( 4, 7 )
+texture = ExtResource( 1 )
+offset = Vector2( 130, 0 )
+texture_scale = 0.2
+energy = 1.75
+range_z_min = -1
+range_z_max = 1
+shadow_enabled = true
+shadow_filter = 1
+
+[node name="UnderglowLight" type="Light2D" parent="Path2D/PathFollow2D/Sprite"]
+scale = Vector2( 1.8, 0.8 )
+texture = ExtResource( 3 )
+energy = 1.5
+range_z_min = -1
+range_z_max = 1
+shadow_enabled = true

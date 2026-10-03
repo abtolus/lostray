@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
+
+[node name="ResultLabel" type="Control"]
+margin_right = 640.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 656, 80 )
+
+[node name="CR" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.12549, 0.14902, 0.160784, 1 )
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+rect_min_size = Vector2( 640, 64 )
+custom_colors/font_color = Color( 0.839216, 0.839216, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1

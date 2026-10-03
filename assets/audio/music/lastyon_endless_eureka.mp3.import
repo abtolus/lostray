@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/lastyon_endless_eureka.mp3-ef6edc4aceb4be214f752ce9a0df6bcc.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/lastyon_endless_eureka.mp3"
+dest_files=[ "res://.import/lastyon_endless_eureka.mp3-ef6edc4aceb4be214f752ce9a0df6bcc.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

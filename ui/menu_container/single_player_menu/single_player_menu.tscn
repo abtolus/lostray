@@ -1,0 +1,191 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://ui/menu_container/single_player_menu/single_player_menu.gd" type="Script" id=1]
+[ext_resource path="res://resources/theme.tres" type="Theme" id=2]
+[ext_resource path="res://assets/images/general/rainforestLTN.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/general/savannahLTN.png" type="Texture" id=4]
+[ext_resource path="res://assets/images/general/desertLTN.png" type="Texture" id=5]
+[ext_resource path="res://assets/images/general/tundraLTN.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFontData" id=19]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=20]
+size = 64
+outline_size = 3
+outline_color = Color( 0.0509804, 0.0862745, 0.121569, 1 )
+font_data = SubResource( 19 )
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="DynamicFontData" id=16]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=17]
+size = 48
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 16 )
+
+[node name="SinglePlayerMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="CR" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.101961, 0.164706, 0.219608, 1 )
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -448.0
+margin_top = -216.0
+margin_right = 448.0
+margin_bottom = 344.0
+rect_min_size = Vector2( 896, 560 )
+
+[node name="CR" type="ColorRect" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0509804, 0.0862745, 0.121569, 1 )
+
+[node name="MC" type="MarginContainer" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = -32.0
+
+[node name="VBC" type="GridContainer" parent="Control/MC"]
+margin_right = 832.0
+margin_bottom = 496.0
+custom_constants/vseparation = 64
+custom_constants/hseparation = 64
+columns = 2
+
+[node name="RainforestTB" type="TextureButton" parent="Control/MC/VBC"]
+modulate = Color( 1, 1, 1, 0.839216 )
+margin_right = 384.0
+margin_bottom = 216.0
+rect_min_size = Vector2( 384, 216 )
+texture_normal = ExtResource( 3 )
+expand = true
+
+[node name="RainforestLabel" type="Label" parent="Control/MC/VBC/RainforestTB"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -146.5
+margin_top = -36.0
+margin_right = 146.5
+margin_bottom = 36.0
+theme = ExtResource( 2 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 20 )
+custom_styles/normal = SubResource( 18 )
+text = "Rainforest"
+
+[node name="SavannahTB" type="TextureButton" parent="Control/MC/VBC"]
+modulate = Color( 1, 1, 1, 0.839216 )
+margin_left = 448.0
+margin_right = 832.0
+margin_bottom = 216.0
+rect_min_size = Vector2( 384, 216 )
+texture_normal = ExtResource( 4 )
+expand = true
+
+[node name="SavannahLabel" type="Label" parent="Control/MC/VBC/SavannahTB"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -145.5
+margin_top = -36.0
+margin_right = 145.5
+margin_bottom = 36.0
+theme = ExtResource( 2 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 20 )
+custom_styles/normal = SubResource( 18 )
+text = "Savannah"
+
+[node name="DesertTB" type="TextureButton" parent="Control/MC/VBC"]
+modulate = Color( 1, 1, 1, 0.839216 )
+margin_top = 280.0
+margin_right = 384.0
+margin_bottom = 496.0
+rect_min_size = Vector2( 384, 216 )
+texture_normal = ExtResource( 5 )
+expand = true
+
+[node name="DesertLabel" type="Label" parent="Control/MC/VBC/DesertTB"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -94.5
+margin_top = -36.0
+margin_right = 94.5
+margin_bottom = 36.0
+theme = ExtResource( 2 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 20 )
+custom_styles/normal = SubResource( 18 )
+text = "Desert"
+
+[node name="TundraTB" type="TextureButton" parent="Control/MC/VBC"]
+modulate = Color( 1, 1, 1, 0.839216 )
+margin_left = 448.0
+margin_top = 280.0
+margin_right = 832.0
+margin_bottom = 496.0
+rect_min_size = Vector2( 384, 216 )
+texture_normal = ExtResource( 6 )
+expand = true
+
+[node name="TundraLabel" type="Label" parent="Control/MC/VBC/TundraTB"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -101.0
+margin_top = -36.0
+margin_right = 101.0
+margin_bottom = 36.0
+theme = ExtResource( 2 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 20 )
+custom_styles/normal = SubResource( 18 )
+text = "Tundra"
+
+[node name="CR2" type="ColorRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1920, 128 )
+color = Color( 0.0509804, 0.0862745, 0.121569, 1 )
+
+[node name="Back" type="Button" parent="CR2"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 32.0
+margin_top = -32.0
+margin_right = 160.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 128, 64 )
+custom_colors/font_color = Color( 0.839216, 0.839216, 1, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "Back"
+flat = true
+
+[connection signal="button_up" from="Control/MC/VBC/RainforestTB" to="." method="_on_RainforestTB_button_up"]
+[connection signal="button_up" from="Control/MC/VBC/SavannahTB" to="." method="_on_SavannahTB_button_up"]
+[connection signal="button_up" from="Control/MC/VBC/DesertTB" to="." method="_on_DesertTB_button_up"]
+[connection signal="button_up" from="Control/MC/VBC/TundraTB" to="." method="_on_TundraTB_button_up"]
+[connection signal="button_up" from="CR2/Back" to="." method="_on_Back_button_up"]

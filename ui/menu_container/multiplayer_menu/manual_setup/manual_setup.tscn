@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ui/menu_container/multiplayer_menu/manual_setup/manual_setup.gd" type="Script" id=1]
+[ext_resource path="res://resources/theme.tres" type="Theme" id=2]
+
+[sub_resource type="DynamicFontData" id=24]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=25]
+size = 48
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 24 )
+
+[sub_resource type="StyleBoxFlat" id=26]
+bg_color = Color( 0.101961, 0.164706, 0.219608, 1 )
+
+[node name="ManualSetup" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 640, 480 )
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.101961, 0.164706, 0.219608, 1 )
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -240.0
+margin_right = 320.0
+margin_bottom = 240.0
+rect_min_size = Vector2( 640, 480 )
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0509804, 0.0862745, 0.121569, 1 )
+
+[node name="MC" type="MarginContainer" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -16.0
+
+[node name="VBC" type="VBoxContainer" parent="Control/MC"]
+margin_right = 608.0
+margin_bottom = 448.0
+custom_constants/separation = 80
+
+[node name="ServerIpAddress" type="LineEdit" parent="Control/MC/VBC"]
+margin_right = 608.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 0, 96 )
+custom_colors/font_color = Color( 0.839216, 0.839216, 1, 1 )
+custom_fonts/font = SubResource( 25 )
+custom_styles/normal = SubResource( 26 )
+align = 1
+max_length = 16
+placeholder_text = "Enter Server IP Address"
+placeholder_alpha = 0.75
+
+[node name="Control" type="Control" parent="Control/MC/VBC"]
+margin_top = 176.0
+margin_right = 608.0
+margin_bottom = 448.0
+size_flags_vertical = 3
+
+[node name="VBC" type="VBoxContainer" parent="Control/MC/VBC/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -192.0
+margin_top = -136.0
+margin_right = 192.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 256, 272 )
+custom_constants/separation = 40
+
+[node name="Join" type="Button" parent="Control/MC/VBC/Control/VBC"]
+margin_right = 384.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 0, 96 )
+theme = ExtResource( 2 )
+text = "Join"
+
+[node name="ExitSetup" type="Button" parent="Control/MC/VBC/Control/VBC"]
+margin_top = 136.0
+margin_right = 384.0
+margin_bottom = 232.0
+rect_min_size = Vector2( 0, 96 )
+theme = ExtResource( 2 )
+text = "Exit Setup"
+
+[connection signal="button_up" from="Control/MC/VBC/Control/VBC/Join" to="." method="_on_Join_button_up"]
+[connection signal="button_up" from="Control/MC/VBC/Control/VBC/ExitSetup" to="." method="_on_ExitSetup_button_up"]

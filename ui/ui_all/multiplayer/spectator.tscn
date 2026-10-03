@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/images/ui/input_pressed.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/ui/input_normal.png" type="Texture" id=2]
+[ext_resource path="res://ui/ui_all/multiplayer/spectator.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.101961, 0.164706, 0.219608, 1 )
+
+[node name="Spectator" type="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -320.0
+margin_top = -128.0
+margin_right = 320.0
+margin_bottom = -64.0
+rect_min_size = Vector2( 640, 64 )
+script = ExtResource( 3 )
+
+[node name="CR" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0509804, 0.0862745, 0.121569, 1 )
+
+[node name="MC" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -8.0
+
+[node name="HBC" type="HBoxContainer" parent="MC"]
+margin_right = 624.0
+margin_bottom = 48.0
+custom_constants/separation = 8
+
+[node name="Control" type="Control" parent="MC/HBC"]
+margin_right = 48.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+
+[node name="TBL" type="TextureButton" parent="MC/HBC/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 48, 48 )
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 24, 24 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MC/HBC"]
+margin_left = 56.0
+margin_right = 568.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 512, 48 )
+custom_fonts/font = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+align = 1
+valign = 1
+
+[node name="TBR" type="TextureButton" parent="MC/HBC"]
+margin_left = 576.0
+margin_right = 624.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 1 )
+expand = true
+stretch_mode = 5
+
+[connection signal="button_up" from="MC/HBC/Control/TBL" to="." method="_on_TBL_button_up"]
+[connection signal="button_up" from="MC/HBC/TBR" to="." method="_on_TBR_button_up"]

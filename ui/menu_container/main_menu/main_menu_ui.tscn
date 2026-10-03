@@ -1,0 +1,284 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://ui/menu_container/main_menu/main_menu_ui.gd" type="Script" id=1]
+[ext_resource path="res://resources/theme.tres" type="Theme" id=2]
+[ext_resource path="res://assets/images/sprites/lastyoin_icon.png" type="Texture" id=3]
+[ext_resource path="res://assets/images/sprites/supabase.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.133333, 0.133333, 0.25098, 1 )
+border_color = Color( 0.12549, 0.14902, 0.164706, 1 )
+
+[sub_resource type="Theme" id=9]
+Panel/styles/panel = SubResource( 8 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=5]
+size = 48
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFontData" id=27]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=26]
+size = 48
+font_data = SubResource( 27 )
+
+[sub_resource type="DynamicFontData" id=23]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=24]
+size = 48
+font_data = SubResource( 23 )
+
+[sub_resource type="DynamicFontData" id=19]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=20]
+size = 64
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 19 )
+
+[sub_resource type="DynamicFontData" id=21]
+font_path = "res://assets/fonts/ARIAL.TTF"
+
+[sub_resource type="DynamicFont" id=22]
+size = 64
+outline_size = 4
+outline_color = Color( 0.0627451, 0.0862745, 0.0980392, 1 )
+font_data = SubResource( 21 )
+
+[node name="MainMenuUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="RControl" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="RControl"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -512.0
+margin_top = -952.0
+color = Color( 0.0509804, 0.0862745, 0.121569, 1 )
+
+[node name="MC" type="MarginContainer" parent="RControl/ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_right = -32.0
+rect_min_size = Vector2( 0, 952 )
+
+[node name="VBC" type="VBoxContainer" parent="RControl/ColorRect/MC"]
+margin_right = 448.0
+margin_bottom = 952.0
+custom_constants/separation = 64
+alignment = 1
+
+[node name="Drive" type="Button" parent="RControl/ColorRect/MC/VBC"]
+margin_top = 188.0
+margin_right = 448.0
+margin_bottom = 284.0
+rect_min_size = Vector2( 0, 96 )
+theme = ExtResource( 2 )
+text = "Drive"
+
+[node name="Garage" type="Button" parent="RControl/ColorRect/MC/VBC"]
+margin_top = 348.0
+margin_right = 448.0
+margin_bottom = 444.0
+rect_min_size = Vector2( 0, 96 )
+theme = ExtResource( 2 )
+text = "Garage"
+
+[node name="Settings" type="Button" parent="RControl/ColorRect/MC/VBC"]
+margin_top = 508.0
+margin_right = 448.0
+margin_bottom = 604.0
+rect_min_size = Vector2( 0, 96 )
+theme = ExtResource( 2 )
+text = "Settings"
+
+[node name="Quit" type="Button" parent="RControl/ColorRect/MC/VBC"]
+margin_top = 668.0
+margin_right = 448.0
+margin_bottom = 764.0
+rect_min_size = Vector2( 0, 96 )
+theme = ExtResource( 2 )
+text = "Quit"
+
+[node name="TControl" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1920, 128 )
+
+[node name="TR" type="ColorRect" parent="TControl"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 9 )
+color = Color( 0.101961, 0.164706, 0.219608, 1 )
+
+[node name="SupabaseTR" type="TextureButton" parent="TControl"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 96.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 64, 64 )
+texture_normal = ExtResource( 4 )
+expand = true
+
+[node name="EditUsername" type="Button" parent="TControl"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 128.0
+margin_top = -36.0
+margin_right = 848.0
+margin_bottom = 36.0
+rect_min_size = Vector2( 720, 0 )
+custom_colors/font_color = Color( 0.839216, 0.839216, 1, 1 )
+custom_fonts/font = SubResource( 5 )
+flat = true
+align = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TControl"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -502.0
+margin_top = -32.0
+margin_right = -22.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 480, 64 )
+custom_constants/separation = 32
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TControl/HBoxContainer"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 0 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="CoinsLabel" type="Label" parent="TControl/HBoxContainer"]
+margin_left = 96.0
+margin_right = 480.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 26 )
+align = 1
+valign = 1
+
+[node name="Control" type="Control" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = -224.0
+margin_right = 288.0
+margin_bottom = -64.0
+rect_min_size = Vector2( 256, 192 )
+
+[node name="WatchCredtis" type="Button" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 192, 128 )
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 24 )
+text = "Watch
+Credits"
+
+[node name="UsernameEdition" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CR" type="ColorRect" parent="UsernameEdition"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1408, 952 )
+color = Color( 0.101961, 0.164706, 0.219608, 1 )
+
+[node name="Control" type="Control" parent="UsernameEdition"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -432.0
+margin_top = -160.0
+margin_right = 432.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 864, 320 )
+
+[node name="CR" type="ColorRect" parent="UsernameEdition/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0509804, 0.0862745, 0.121569, 1 )
+
+[node name="MC" type="MarginContainer" parent="UsernameEdition/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = -32.0
+margin_bottom = -32.0
+rect_min_size = Vector2( 784, 240 )
+
+[node name="VBC" type="VBoxContainer" parent="UsernameEdition/Control/MC"]
+margin_right = 800.0
+margin_bottom = 256.0
+custom_constants/separation = 48
+
+[node name="LineEdit" type="LineEdit" parent="UsernameEdition/Control/MC/VBC"]
+margin_right = 800.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 7, 96 )
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0.839216, 0.839216, 1, 1 )
+custom_fonts/font = SubResource( 20 )
+align = 1
+placeholder_text = "New Username"
+
+[node name="HBC" type="HBoxContainer" parent="UsernameEdition/Control/MC/VBC"]
+margin_top = 160.0
+margin_right = 800.0
+margin_bottom = 256.0
+custom_constants/separation = 16
+
+[node name="Cancel" type="Button" parent="UsernameEdition/Control/MC/VBC/HBC"]
+margin_right = 392.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 0, 96 )
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 22 )
+text = "Cancel"
+
+[node name="Confirm" type="Button" parent="UsernameEdition/Control/MC/VBC/HBC"]
+margin_left = 408.0
+margin_right = 800.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 0, 96 )
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 22 )
+text = "Confirm"
+
+[connection signal="button_up" from="RControl/ColorRect/MC/VBC/Drive" to="." method="_on_Drive_button_up"]
+[connection signal="button_up" from="RControl/ColorRect/MC/VBC/Garage" to="." method="_on_Garage_button_up"]
+[connection signal="button_up" from="RControl/ColorRect/MC/VBC/Settings" to="." method="_on_Settings_button_up"]
+[connection signal="button_up" from="RControl/ColorRect/MC/VBC/Quit" to="." method="_on_Quit_button_up"]
+[connection signal="button_up" from="TControl/SupabaseTR" to="." method="_on_SupabaseTR_button_up"]
+[connection signal="button_up" from="TControl/EditUsername" to="." method="_on_EditUsername_button_up"]
+[connection signal="button_up" from="Control/WatchCredtis" to="." method="_on_WatchCredtis_button_up"]
+[connection signal="button_up" from="UsernameEdition/Control/MC/VBC/HBC/Cancel" to="." method="_on_Cancel_button_up"]
+[connection signal="button_up" from="UsernameEdition/Control/MC/VBC/HBC/Confirm" to="." method="_on_Confirm_button_up"]
